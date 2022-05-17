@@ -1,0 +1,66 @@
+#!/bin/sh
+
+now=$(printf '%.0f\n' $(xbacklight -get))
+
+dec() {
+    if [ "$now" -le "1" ]; then
+        xbacklight -set 0
+    elif [ "$now" -le "2" ]; then
+        xbacklight -set 1
+    elif [ "$now" -le "4" ]; then
+        xbacklight -set 2
+    elif [ "$now" -le "9" ]; then
+        xbacklight -set 4
+    elif [ "$now" -le "16" ]; then
+        xbacklight -set 9
+    elif [ "$now" -le "25" ]; then
+        xbacklight -set 16
+    elif [ "$now" -le "36" ]; then
+        xbacklight -set 25
+    elif [ "$now" -le "49" ]; then
+        xbacklight -set 36
+    elif [ "$now" -le "64" ]; then
+        xbacklight -set 49
+    elif [ "$now" -le "81" ]; then
+        xbacklight -set 64
+    elif [ "$now" -le "100" ]; then
+        xbacklight -set 81
+    else
+        xbacklight -set 100
+    fi
+}
+
+inc() {
+    if [ "$now" -ge "81" ]; then
+        xbacklight -set 100
+    elif [ "$now" -ge "64" ]; then
+        xbacklight -set 81
+    elif [ "$now" -ge "49" ]; then
+        xbacklight -set 64
+    elif [ "$now" -ge "36" ]; then
+        xbacklight -set 49
+    elif [ "$now" -ge "25" ]; then
+        xbacklight -set 36
+    elif [ "$now" -ge "16" ]; then
+        xbacklight -set 25
+    elif [ "$now" -ge "9" ]; then
+        xbacklight -set 16
+    elif [ "$now" -ge "4" ]; then
+        xbacklight -set 9
+    elif [ "$now" -ge "2" ]; then
+        xbacklight -set 4
+    elif [ "$now" -ge "1" ]; then
+        xbacklight -set 2
+    else
+        xbacklight -set 1
+    fi
+}
+
+if [ "$1" == "-dec" ]; then
+    dec
+elif [ "$1" == "-inc" ]; then
+    inc
+else
+    echo "Usage: $0 [-dec|-inc]"
+    exit 1
+fi
