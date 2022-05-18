@@ -1,7 +1,7 @@
 # Minatainer: sou7 https://twitter.com/sou7___
 
 pkgname=sou7-backlight
-pkgver=0.0.5
+pkgver=0.0.6
 pkgrel=0
 pkgdesc='A backlight controller'
 arch=('any')
@@ -20,5 +20,5 @@ pkgver() {
 package() {
     mkdir "${pkgdir}/usr"
     mkdir "${pkgdir}/usr/bin"
-    cp -r "${srcdir}/${pkgdir}/bin/sou7-backlight" "${pkgdir}/usr/bin"
+    cp -r "${srcdir}/${pkgname}/bin/sou7-backlight" "${pkgdir}/usr/bin"
 }
