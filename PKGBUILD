@@ -1,8 +1,8 @@
 # Minatainer: sou7 https://twitter.com/sou7___
 
 pkgname=sou7-backlight
-pkgver=0.0.2
-pkgrel=1
+pkgver=0.0.3
+pkgrel=0
 pkgdesc='A backlight controller'
 arch=('any')
 url='https://github.com/soukouki/sou7-backlight'
