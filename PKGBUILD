@@ -3,7 +3,7 @@
 pkgname=sou7-backlight
 pkgver=0.0.0
 pkgrel=1
-pkgdesc='A backlight controler'
+pkgdesc='A backlight controller'
 arch=('any')
 url='https://github.com/soukouki/sou7-backlight'
 license=('MIT')
@@ -13,12 +13,12 @@ source=("git+${url}.git#tag=v${pkgver}")
 sha256sums=('SKIP')
 
 pkgver() {
-    cd "${srcdir}/${pkgname}"
+    cd "${srcdir}/"
     git describe --tags | sed 's/^v//;s/-/+/g'
 }
 
 package() {
     mkdir "${pkgdir}/usr"
     mkdir "${pkgdir}/usr/bin"
-    cp -r "${srcdir}/${pkgname}/sou7-backlight" "${pkgdir}/usr/bin"
+    cp -r "${srcdir}/bin/sou7-backlight" "${pkgdir}/usr/bin"
 }
